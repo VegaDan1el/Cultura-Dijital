@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta a la Tierra</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f0f8f5;
+}
+
+/* HEADER */
+header {
+    background: #2e7d32;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* TARJETAS */
+.container {
+    padding: 20px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.card:hover {
+    background: #e8f5e9;
+}
+
+/* VIDEO */
+.video {
+    text-align: center;
+    margin: 30px;
+}
+
+/* QUIZ */
+.quiz {
+    background: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+button {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1b5e20;
+}
+
+/* FOOTER */
+footer {
+    background: #2e7d32;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <h1>Carta a la Tierra 🌍</h1>
+    <nav>
+        <a href="#info">Información</a>
+        <a href="#principios">Principios</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#proyecto">Proyecto</a>
+    </nav>
+</header>
+
+<!-- 3 TARJETAS -->
+<section class="container" id="info">
+    <h2>¿Qué es la Carta a la Tierra?</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Definición</h3>
+            <p>Es un documento que promueve valores para cuidar el planeta y vivir en armonía.</p>
+        </div>
+
+        <div class="card">
+            <h3>Importancia</h3>
+            <p>Ayuda a crear conciencia sobre el medio ambiente y la responsabilidad social.</p>
+        </div>
+
+        <div class="card">
+            <h3>Objetivo</h3>
+            <p>Construir un mundo justo, sostenible y pacífico para todos.</p>
+        </div>
+    </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video">
+    <h2>Video: Carta a la Tierra</h2>
+    <iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/DuZ3y7Cz6k0" 
+    frameborder="0" allowfullscreen></iframe>
+</section>
+
+<!-- PRINCIPIOS -->
+<section class="container" id="principios">
+    <h2>Principios</h2>
+    <div class="cards">
+
+        <div class="card" onclick="mostrar(1)">
+            <h3>Respeto y cuidado</h3>
+        </div>
+
+        <div class="card" onclick="mostrar(2)">
+            <h3>Integridad ecológica</h3>
+        </div>
+
+        <div class="card" onclick="mostrar(3)">
+            <h3>Justicia social</h3>
+        </div>
+
+        <div class="card" onclick="mostrar(4)">
+            <h3>Paz</h3>
+        </div>
+
+    </div>
+
+    <p id="resultado"></p>
+</section>
+
+<!-- QUIZ -->
+<section class="quiz" id="quiz">
+    <h2>Quiz 🌱</h2>
+
+    <p>1. ¿Qué debemos cuidar?</p>
+    <input type="radio" name="q1" value="1"> El planeta<br>
+    <input type="radio" name="q1" value="0"> Solo ciudades<br>
+
+    <p>2. ¿Qué promueve la Carta?</p>
+    <input type="radio" name="q2" value="1"> Valores ambientales<br>
+    <input type="radio" name="q2" value="0"> Contaminación<br>
+
+    <p>3. ¿Qué es reciclar?</p>
+    <input type="radio" name="q3" value="1"> Reutilizar<br>
+    <input type="radio" name="q3" value="0"> Tirar basura<br>
+
+    <p>4. ¿Qué ayuda al planeta?</p>
+    <input type="radio" name="q4" value="1"> Ahorrar agua<br>
+    <input type="radio" name="q4" value="0"> Desperdiciar<br>
+
+    <p>5. ¿Qué buscamos?</p>
+    <input type="radio" name="q5" value="1"> Sostenibilidad<br>
+    <input type="radio" name="q5" value="0"> Daño ambiental<br><br>
+
+    <button onclick="calificar()">Calificar</button>
+    <p id="score"></p>
+</section>
+
+<!-- PROYECTO -->
+<footer id="proyecto">
+    <h2>Proyecto Escolar</h2>
+    <p><b>Integrantes:</b> Daniel Vega, Ian Torre, Leonardo Guzmán</p>
+    <p><b>Grado y Grupo:</b> 2° G Programación</p>
+    <p><b>Materia:</b> Cultura Digital</p>
+    <p><b>Docente:</b> María Guadalupe</p>
+    <p><b>Escuela:</b> CETis 155</p>
+    <p><b>Finalidad:</b> Concientizar sobre el cuidado del medio ambiente</p>
+    <p><b>Mensaje:</b> Cuidar la Tierra es responsabilidad de todos 🌍</p>
+</footer>
+
+<script>
+function mostrar(num){
+    let texto = "";
+    if(num==1){
+        texto = "Respetar la vida y cuidar todos los seres vivos.";
+    }
+    if(num==2){
+        texto = "Proteger los ecosistemas y evitar la contaminación.";
+    }
+    if(num==3){
+        texto = "Igualdad y justicia para todos.";
+    }
+    if(num==4){
+        texto = "Promover la paz y la no violencia.";
+    }
+    document.getElementById("resultado").innerText = texto;
+}
+
+function calificar(){
+    let total = 0;
+    for(let i=1;i<=5;i++){
+        let r = document.querySelector('input[name="q'+i+'"]:checked');
+        if(r) total += parseInt(r.value);
+    }
+    document.getElementById("score").innerText = "Tu puntuación: " + total + "/5";
+}
+</script>
+
+</body>
+</html>
